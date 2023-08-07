@@ -1,14 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-
-  required_version = ">= 0.12"
-  
-}
 
 #create bastion server to connect with instances located in private subnet
 resource "aws_instance" "web" {
