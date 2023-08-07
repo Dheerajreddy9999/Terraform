@@ -12,11 +12,6 @@ resource "aws_instance" "web" {
 }
 
 
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-2"
-}
-
 #create vpc
 resource "aws_vpc" "vpc-demo" {
   cidr_block       = "10.0.0.0/16"
