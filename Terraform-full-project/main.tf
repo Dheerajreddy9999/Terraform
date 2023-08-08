@@ -5,6 +5,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name      = "dheeraj"
   subnet_id     = aws_subnet.us-east-2b-public.id
+  security_groups = [aws_security_group.default-sg.name]
 
   tags = {
     Name = "bastion"
