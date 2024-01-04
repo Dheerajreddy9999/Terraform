@@ -38,6 +38,10 @@ variable "kubernetes_version" {
   type = string
 }
 
+variable "sku_tier" {
+  type = string
+}
+
 variable "node_resource_group" {
   type = string
 }

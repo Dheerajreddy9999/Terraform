@@ -33,6 +33,7 @@ module "aks" {
   min_count             = var.min_count
   enable_node_public_ip = var.enable_node_public_ip
   vnet_subnet_id        = module.vnet.subnet_id
+  sku_tier              = var.sku_tier
 
   depends_on = [module.vnet, azurerm_resource_group.dm-rg]
 }

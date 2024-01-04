@@ -2,6 +2,10 @@ variable "aks_cluster_name" {
   type = string
 }
 
+variable "sku_tier" {
+  type = string
+}
+
 variable "resource_group_name" {
   type = string
 }

@@ -19,3 +19,4 @@ os_disk_size_gb       = "40"
 max_count             = 4
 min_count             = 1
 enable_node_public_ip = true
+sku_tier              = "Free"
