@@ -50,14 +50,14 @@ resource "azurerm_kubernetes_cluster" "this" {
     }
   }
 
-  identity {
-    type         = "UserAssigned"
-    identity_ids = [azurerm_user_assigned_identity.base.id]
-  }
-
   # identity {
-  #   type = "SystemAssigned"
+  #   type         = "UserAssigned"
+  #   identity_ids = [azurerm_user_assigned_identity.base.id]
   # }
+
+  identity {
+    type = "SystemAssigned"
+  }
 
   tags = {
     env = local.env
