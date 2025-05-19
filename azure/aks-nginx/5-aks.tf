@@ -22,8 +22,8 @@ resource "azurerm_kubernetes_cluster" "this" {
   private_cluster_enabled   = "false"
   sku_tier                  = "Free"
 
-  oidc_issuer_enabled       = "true"
-  workload_identity_enabled = "true"
+  # oidc_issuer_enabled       = "true"
+  # workload_identity_enabled = "true"
 
 
   network_profile {
@@ -50,14 +50,14 @@ resource "azurerm_kubernetes_cluster" "this" {
     }
   }
 
-  # identity {
-  #   type         = "UserAssigned"
-  #   identity_ids = [azurerm_user_assigned_identity.base.id]
-  # }
-
   identity {
-    type = "SystemAssigned"
+    type         = "UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.base.id]
   }
+
+  # identity {
+  #   type = "SystemAssigned"
+  # }
 
   tags = {
     env = local.env

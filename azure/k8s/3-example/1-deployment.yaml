@@ -17,4 +17,4 @@ spec:
         - name: echoserver-v1
           image: k8s.gcr.io/e2e-test-images/echoserver:2.5
           ports:
-            - containerPort: 8080
+            - containerPort: 80

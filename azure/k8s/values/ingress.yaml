@@ -1,11 +1,22 @@
 ---
+# controller:
+#   ingressClassResource:
+#     name: external-nginx
+#   service:
+#     annotations:
+#       service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+#       # Create internal LB
+#       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+#   # Required for ACME
+#   watchIngressWithoutClass: true
+#   extraArgs:
+#     ingress-class: external-nginx
+
+
 controller:
-  ingressClassResource:
-    name: external-nginx
   service:
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
-  # Required for ACME
-  watchIngressWithoutClass: true
-  extraArgs:
-    ingress-class: external-nginx
+      # Create internal LB
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+

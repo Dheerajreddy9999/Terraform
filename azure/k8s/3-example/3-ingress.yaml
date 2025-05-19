@@ -2,17 +2,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: echoserver-v1
+  name: example-ingress
 spec:
-  ingressClassName: external-nginx
+  ingressClassName: nginx
   rules:
-    - host: echo.antonputra.pvt
+    - host: echo.drajj.com
       http:
         paths:
           - path: /
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name: echoserver-v1
                 port:
-                  number: 8080
+                  number: 80
+  tls:
+    - hosts:
+      - echo.drajj.com
+      secretName: example-tls
